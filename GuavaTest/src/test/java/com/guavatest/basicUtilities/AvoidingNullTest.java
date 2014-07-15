@@ -16,7 +16,7 @@ public class AvoidingNullTest {
 	public void isPresentTest() {
 		Optional<Integer> possible = Optional.of(5);
 		Assert.assertTrue(possible.isPresent());
-	}
+	}	
 	
 	@Test
 	public void absentTest() {
@@ -36,5 +36,11 @@ public class AvoidingNullTest {
 		Integer intValue = null;
 		Optional<Integer> present = Optional.fromNullable(intValue);
 		Assert.assertFalse(present.isPresent());
+	}
+	
+	@Test
+	public void getTest() {
+		Optional<Integer> possible = Optional.of(5);
+		Assert.assertEquals(new Integer(5), possible.get());
 	}
 }
