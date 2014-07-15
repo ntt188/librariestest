@@ -43,4 +43,28 @@ public class AvoidingNullTest {
 		Optional<Integer> possible = Optional.of(5);
 		Assert.assertEquals(new Integer(5), possible.get());
 	}
+	
+	@Test
+	public void orPresentTest() {
+		Optional<Integer> possible = Optional.of(5);
+		Assert.assertEquals(new Integer(5), possible.or(7));
+	}
+	
+	@Test
+	public void orAbsentTest() {
+		Optional<Integer> possible = Optional.absent();
+		Assert.assertEquals(new Integer(7), possible.or(7));
+	}
+	
+	@Test
+	public void orNullPresentTest() {
+		Optional<Integer> possible = Optional.of(5);
+		Assert.assertEquals(new Integer(5), possible.orNull());
+	}
+	
+	@Test
+	public void orNullAbsentTest() {
+		Optional<Integer> possible = Optional.absent();
+		Assert.assertNull(possible.orNull());
+	}
 }
