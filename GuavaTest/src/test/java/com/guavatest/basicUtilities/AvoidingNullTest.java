@@ -84,4 +84,24 @@ public class AvoidingNullTest {
 		Assert.assertEquals(1, set.size());
 		Assert.assertEquals(new Integer(5), set.iterator().next());
 	}
+	
+	@Test
+	public void equalsTest() {
+		Assert.assertTrue(Optional.of(5).equals(Optional.of(5)));
+	}
+	
+	@Test
+	public void notEqualsTest() {
+		Assert.assertFalse(Optional.of(5).equals(Optional.of(4)));
+	}
+	
+	@Test
+	public void equalsAbsentTest() {
+		Assert.assertTrue(Optional.absent().equals(Optional.absent()));
+	}
+	
+	@Test
+	public void notEqualsAbsentTest() {
+		Assert.assertFalse(Optional.absent().equals(Optional.of(5)));
+	}
 }
