@@ -1,5 +1,7 @@
 package com.guavatest.basicUtilities;
 
+import java.util.Set;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -66,5 +68,20 @@ public class AvoidingNullTest {
 	public void orNullAbsentTest() {
 		Optional<Integer> possible = Optional.absent();
 		Assert.assertNull(possible.orNull());
+	}
+	
+	@Test
+	public void asSetAbsentTest() {
+		Optional<Integer> possible = Optional.absent();
+		Set<Integer> set = possible.asSet();
+		Assert.assertTrue(set.isEmpty());
+	}
+	
+	@Test
+	public void asSetPresentTest() {
+		Optional<Integer> possible = Optional.of(5);
+		Set<Integer> set = possible.asSet();
+		Assert.assertEquals(1, set.size());
+		Assert.assertEquals(new Integer(5), set.iterator().next());
 	}
 }
