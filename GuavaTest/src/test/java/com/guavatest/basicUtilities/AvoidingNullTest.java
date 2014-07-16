@@ -1,5 +1,8 @@
 package com.guavatest.basicUtilities;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 import org.junit.Assert;
@@ -117,5 +120,18 @@ public class AvoidingNullTest {
 	@Test
 	public void notEqualsAbsentTest() {
 		Assert.assertFalse(Optional.absent().equals(Optional.of(5)));
+	}
+	
+	@Test
+	public void presentInstancesTest() {
+		List<Optional<Integer>> listValues = new ArrayList<Optional<Integer>>();
+		listValues.add(Optional.of(5));
+		Optional<Integer> absent = Optional.absent();
+		listValues.add(absent);
+		listValues.add(Optional.of(7));
+		
+		Iterator<Integer> iterPresents = Optional.presentInstances(listValues).iterator();
+		Assert.assertEquals(new Integer(5), iterPresents.next());
+		Assert.assertEquals(new Integer(7), iterPresents.next());
 	}
 }
