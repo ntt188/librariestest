@@ -13,7 +13,7 @@ import com.google.common.base.Optional;
 public class AvoidingNullTest {
 
 	@Test(expected=NullPointerException.class)
-	public void ofNullTest() {
+	public void ofNullTest() {		
 		Optional.of(null);
 	}
 	
