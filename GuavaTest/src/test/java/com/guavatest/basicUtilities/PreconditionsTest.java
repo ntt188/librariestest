@@ -15,4 +15,17 @@ public class PreconditionsTest {
 	public void testCheckArgumentFalse() throws Exception {
 		Preconditions.checkArgument(false);
 	}
+	
+	
+	@Test
+	public void testCheckArgumentWithMessageTrue() throws Exception {
+		Preconditions.checkArgument(true, "Message");
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testCheckArgumentWithMessageFalse() throws Exception {
+		Preconditions.checkArgument(false, "Message");
+	}
+	
+	
 }
