@@ -1,4 +1,4 @@
-package com.guavatest.basicUtilities;
+package fr.tungnguyen.guavatest.basicUtilities;
 
 import org.junit.Test;
 
