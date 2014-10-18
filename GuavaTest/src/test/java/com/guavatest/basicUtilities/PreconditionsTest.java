@@ -16,7 +16,6 @@ public class PreconditionsTest {
 		Preconditions.checkArgument(false);
 	}
 	
-	
 	@Test
 	public void testCheckArgumentWithMessageTrue() throws Exception {
 		Preconditions.checkArgument(true, "Message");
@@ -27,5 +26,13 @@ public class PreconditionsTest {
 		Preconditions.checkArgument(false, "Message");
 	}
 	
+	@Test(expected = NullPointerException.class)
+	public void testCheckNotNullNull() throws Exception {
+		Preconditions.checkNotNull(null);
+	}
 	
+	@Test
+	public void testCheckNotNullOk() throws Exception {
+		Preconditions.checkNotNull("");
+	}
 }
