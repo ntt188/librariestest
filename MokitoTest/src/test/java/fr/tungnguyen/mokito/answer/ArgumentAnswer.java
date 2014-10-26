@@ -12,7 +12,6 @@ public class ArgumentAnswer<T> implements Answer<T> {
 		this.answer = answer;
 	}
 	
-	@Override
 	public T answer(InvocationOnMock invocation) throws Throwable {
 		this.args = invocation.getArguments();
 		return this.answer;
