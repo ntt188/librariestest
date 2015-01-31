@@ -19,18 +19,18 @@ public class AvoidingNullTest {
 	@Test(expected=NullPointerException.class)
 	public void ofNullTest() {		
 		Optional.of(null);
-	}
-	
-	@Test
-	public void isPresentTest() {
-		Optional<Integer> possible = Optional.of(5);
-		assertTrue(possible.isPresent());
 	}	
 	
 	@Test
 	public void absentTest() {
 		Optional<Integer> absent = Optional.absent();
 		assertFalse(absent.isPresent());
+	}
+	
+	@Test
+	public void isPresentTest() {
+		Optional<Integer> possible = Optional.of(5);
+		assertTrue(possible.isPresent());
 	}
 	
 	@Test
