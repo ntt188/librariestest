@@ -22,16 +22,16 @@ public class AvoidingNullTest {
 	}	
 	
 	@Test
-	public void absentTest() {
-		Optional<Integer> absent = Optional.absent();
-		assertFalse(absent.isPresent());
-	}
-	
-	@Test
 	public void isPresentTest() {
 		Optional<Integer> possible = Optional.of(5);
 		assertTrue(possible.isPresent());
 	}
+	
+	@Test
+	public void absentTest() {
+		Optional<Integer> absent = Optional.absent();
+		assertFalse(absent.isPresent());
+	}	
 	
 	@Test
 	public void fromNullablePresentTest() {
